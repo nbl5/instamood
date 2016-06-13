@@ -22,6 +22,20 @@ $(document).ready(function() {
 });
 
 function handleResponse(response) {
-  console.log(response);
+  for (var i=0; i<response.data.length; i++) {
+    var url= response.data[i].images.standard_resolution.url;
+    var caption=response.data[i].caption.text;
+   // console.log(url);
+    $("#list").append("<img src=" + url + "/>");
+    $("#list").append("<div>" + caption + "</div>");
+
+  }
+  // console.log(response);
   // add stuff here!
 }
+
+
+  // for (var i=0; i<response.response.docs.length; i++) {
+  //   $("#list").append("<div>"+response.response.docs[i].headline.main+"</div>");
+  //   console.log(response.response.docs[i].headline.main)
+  // }
